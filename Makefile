@@ -36,11 +36,11 @@ ClostestPair-Algorithm.o: ClostestPair-Algorithm.cpp
 Fibonacci-win: Fibonacci-Algorithm.o
 	$(CC) $(CFLAGS) -o $(WIN_PATH)/Fibonacci.exe Fibonacci-Algorithm.o
 
-Fibonacci-macos: Fibonacci-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Fibonacci Fibonacci-Algorithm.o
-
 Fibonacci-linux: Fibonacci-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/Fibonacci Fibonacci-Algorithm.o
+
+Fibonacci-macos: Fibonacci-Algorithm.o
+	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Fibonacci Fibonacci-Algorithm.o
 
 Fibonacci-Algorithm.o: Fibonacci-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c Fibonacci-Algorithm.cpp
