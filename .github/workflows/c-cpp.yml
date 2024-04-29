@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: make
-      run: ls Executables
     - name: make-clean
       run: make clean
     - name: make-linux
