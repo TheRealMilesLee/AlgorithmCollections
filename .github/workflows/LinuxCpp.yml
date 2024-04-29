@@ -1,4 +1,4 @@
-name: Build Linux Version
+name: Build Linux Version of the executable
 
 on:
   push:
