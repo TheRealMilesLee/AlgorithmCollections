@@ -17,6 +17,8 @@ jobs:
       run: make clean
     - name: make-linux
       run: make all-linux
+    - name: make-clean
+      run: make clean
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
@@ -24,5 +26,4 @@ jobs:
         git add .
         git commit -m "Auto commit after compilation"
         git push origin master
-    - name: make-clean
-      run: make clean
+
