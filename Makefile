@@ -89,7 +89,7 @@ BellmanFord-linux: BellmanFord-Algorithm.o
 
 BellmanFord-macos: BellmanFord-Algorithm.o
 	$(CC) $(CFLAGS) -o $(MACOS_PATH)/BellmanFord BellmanFord-Algorithm.o
-	
+
 BellmanFord-Algorithm.o: BellmanFord-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c BellmanFord-Algorithm.cpp
 clean:
