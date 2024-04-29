@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: make-linux
-      run: cd Covered-Algorithm-Code/ && make all-linux
+      run: ls
