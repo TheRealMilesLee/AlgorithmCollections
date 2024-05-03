@@ -6,3 +6,6 @@
 # Thumbnails
 ._*
 
+# Compiled file
+.o
+.out
