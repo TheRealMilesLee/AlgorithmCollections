@@ -1,13 +1,14 @@
 CC=g++
 CFLAGS=-Wall -g --std=c++11 -pedantic -Wextra -O2
-OBJECTS=Selection-Algorithm.o ClostestPair-Algorithm.o Fibonacci-Algorithm.o RodCutting-Algorithm.o Knapsack-Algorithm.o PrettyPrinting-Algorithm.o BellmanFord-Algorithm.o Shuffle-Algorithm.o
+OBJECTS=Selection-Algorithm.o ClostestPair-Algorithm.o Fibonacci-Algorithm.o RodCutting-Algorithm.o Knapsack-Algorithm.o PrettyPrinting-Algorithm.o BellmanFord-Algorithm.o Shuffle-Algorithm.o \
+BinarySearch-Algorithm.o
 WIN_PATH=Executables/Windows
 LINUX_PATH=Executables/Linux
 MACOS_PATH=Executables/MacOS
 
-all-win: Selection-win ClostestPair-win Fibonacci-win RodCutting-win Knapsack-win PrettyPrinting-win BellmanFord-win Shuffle-win
-all-linux: Selection-linux ClostestPair-linux Fibonacci-linux RodCutting-linux Knapsack-linux PrettyPrinting-linux BellmanFord-linux Shuffle-linux
-all-macos: Selection-macos ClostestPair-macos Fibonacci-macos RodCutting-macos Knapsack-macos PrettyPrinting-macos BellmanFord-macos Shuffle-macos
+all-win: Selection-win ClostestPair-win Fibonacci-win RodCutting-win Knapsack-win PrettyPrinting-win BellmanFord-win Shuffle-win BinarySearch-win
+all-linux: Selection-linux ClostestPair-linux Fibonacci-linux RodCutting-linux Knapsack-linux PrettyPrinting-linux BellmanFord-linux Shuffle-linux BinarySearch-linux
+all-macos: Selection-macos ClostestPair-macos Fibonacci-macos RodCutting-macos Knapsack-macos PrettyPrinting-macos BellmanFord-macos Shuffle-macos BinarySearch-macos
 #Selection Algorithm
 Selection-win: Selection-Algorithm.o
 	$(CC) $(CFLAGS) -o $(WIN_PATH)/Selection.exe Selection-Algorithm.o
@@ -87,6 +88,16 @@ Shuffle-macos: Shuffle-Algorithm.o
 	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Shuffle Shuffle-Algorithm.o
 Shuffle-Algorithm.o: Shuffle-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c Shuffle-Algorithm.cpp
+
+#BinarySearch Algorithm
+BinarySearch-win: BinarySearch-Algorithm.o
+	$(CC) $(CFLAGS) -o $(WIN_PATH)/BinarySearch.exe BinarySearch-Algorithm.o
+BinarySearch-linux: BinarySearch-Algorithm.o
+	$(CC) $(CFLAGS) -o $(LINUX_PATH)/BinarySearch BinarySearch-Algorithm.o
+BinarySearch-macos: BinarySearch-Algorithm.o
+	$(CC) $(CFLAGS) -o $(MACOS_PATH)/BinarySearch BinarySearch-Algorithm.o
+BinarySearch-Algorithm.o: BinarySearch-Algorithm.cpp
+	$(CC) $(CFLAGS) -Wno-padded -c BinarySearch-Algorithm.cpp
 
 clean:
 	rm -f $(OBJECTS) *~ *.gch
