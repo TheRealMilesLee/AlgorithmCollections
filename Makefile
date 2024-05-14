@@ -1,14 +1,14 @@
 CC=g++
 CFLAGS=-Wall -g --std=c++11 -pedantic -Wextra -O2
 OBJECTS=Selection-Algorithm.o ClostestPair-Algorithm.o Fibonacci-Algorithm.o RodCutting-Algorithm.o Knapsack-Algorithm.o PrettyPrinting-Algorithm.o BellmanFord-Algorithm.o Shuffle-Algorithm.o \
-BinarySearch-Algorithm.o DFS-Algorithm.o
+BinarySearch-Algorithm.o DFS-Algorithm.o MergeSort-Algorithm.o QuickSort-Algorithm.o
 WIN_PATH=Executables/Windows
 LINUX_PATH=Executables/Linux
 MACOS_PATH=Executables/MacOS
 
-all-win: Selection-win ClostestPair-win Fibonacci-win RodCutting-win Knapsack-win PrettyPrinting-win BellmanFord-win Shuffle-win BinarySearch-win DFS-win
-all-linux: Selection-linux ClostestPair-linux Fibonacci-linux RodCutting-linux Knapsack-linux PrettyPrinting-linux BellmanFord-linux Shuffle-linux BinarySearch-linux DFS-linux
-all-macos: Selection-macos ClostestPair-macos Fibonacci-macos RodCutting-macos Knapsack-macos PrettyPrinting-macos BellmanFord-macos Shuffle-macos BinarySearch-macos DFS-macos
+all-win: Selection-win ClostestPair-win Fibonacci-win RodCutting-win Knapsack-win PrettyPrinting-win BellmanFord-win Shuffle-win BinarySearch-win DFS-win MergeSort-win QuickSort-win
+all-linux: Selection-linux ClostestPair-linux Fibonacci-linux RodCutting-linux Knapsack-linux PrettyPrinting-linux BellmanFord-linux Shuffle-linux BinarySearch-linux DFS-linux MergeSort-linux QuickSort-linux
+all-macos: Selection-macos ClostestPair-macos Fibonacci-macos RodCutting-macos Knapsack-macos PrettyPrinting-macos BellmanFord-macos Shuffle-macos BinarySearch-macos DFS-macos MergeSort-macos QuickSort-macos
 #Selection Algorithm
 Selection-win: Selection-Algorithm.o
 	$(CC) $(CFLAGS) -o $(WIN_PATH)/Selection.exe Selection-Algorithm.o
@@ -108,6 +108,26 @@ DFS-macos: DFS-Algorithm.o
 	$(CC) $(CFLAGS) -o $(MACOS_PATH)/DFS DFS-Algorithm.o
 DFS-Algorithm.o: DFS-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c DFS-Algorithm.cpp
+
+#MergeSort Algorithm
+MergeSort-win: MergeSort-Algorithm.o
+	$(CC) $(CFLAGS) -o $(WIN_PATH)/MergeSort.exe MergeSort-Algorithm.o
+MergeSort-linux: MergeSort-Algorithm.o
+	$(CC) $(CFLAGS) -o $(LINUX_PATH)/MergeSort MergeSort-Algorithm.o
+MergeSort-macos: MergeSort-Algorithm.o
+	$(CC) $(CFLAGS) -o $(MACOS_PATH)/MergeSort MergeSort-Algorithm.o
+MergeSort-Algorithm.o: MergeSort-Algorithm.cpp
+	$(CC) $(CFLAGS) -Wno-padded -c MergeSort-Algorithm.cpp
+
+#QuickSort Algorithm
+QuickSort-win: QuickSort-Algorithm.o
+	$(CC) $(CFLAGS) -o $(WIN_PATH)/QuickSort.exe QuickSort-Algorithm.o
+QuickSort-linux: QuickSort-Algorithm.o
+	$(CC) $(CFLAGS) -o $(LINUX_PATH)/QuickSort QuickSort-Algorithm.o
+QuickSort-macos: QuickSort-Algorithm.o
+	$(CC) $(CFLAGS) -o $(MACOS_PATH)/QuickSort QuickSort-Algorithm.o
+QuickSort-Algorithm.o: QuickSort-Algorithm.cpp
+	$(CC) $(CFLAGS) -Wno-padded -c QuickSort-Algorithm.cpp
 
 clean:
 	rm -f $(OBJECTS) *~ *.gch
