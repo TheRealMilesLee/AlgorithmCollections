@@ -6,6 +6,9 @@ WIN_PATH=Executables/Windows
 LINUX_PATH=Executables/Linux
 MACOS_PATH=Executables/MacOS
 
+# macOS architecture (Intel x86_64)
+MACOS_ARCH = -arch x86_64
+
 all-win: Selection-win ClostestPair-win Fibonacci-win RodCutting-win Knapsack-win PrettyPrinting-win BellmanFord-win Shuffle-win BinarySearch-win DFS-win MergeSort-win QuickSort-win
 all-linux: Selection-linux ClostestPair-linux Fibonacci-linux RodCutting-linux Knapsack-linux PrettyPrinting-linux BellmanFord-linux Shuffle-linux BinarySearch-linux DFS-linux MergeSort-linux QuickSort-linux
 all-macos: Selection-macos ClostestPair-macos Fibonacci-macos RodCutting-macos Knapsack-macos PrettyPrinting-macos BellmanFord-macos Shuffle-macos BinarySearch-macos DFS-macos MergeSort-macos QuickSort-macos
@@ -15,7 +18,7 @@ Selection-win: Selection-Algorithm.o
 Selection-linux: Selection-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/Selection Selection-Algorithm.o
 Selection-macos: Selection-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Selection Selection-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/Selection Selection-Algorithm.o
 Selection-Algorithm.o: Selection-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c Selection-Algorithm.cpp
 
@@ -25,7 +28,7 @@ ClostestPair-win: ClostestPair-Algorithm.o
 ClostestPair-linux: ClostestPair-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/ClostestPair ClostestPair-Algorithm.o
 ClostestPair-macos: ClostestPair-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/ClostestPair ClostestPair-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/ClostestPair ClostestPair-Algorithm.o
 ClostestPair-Algorithm.o: ClostestPair-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c ClostestPair-Algorithm.cpp
 
@@ -35,7 +38,7 @@ Fibonacci-win: Fibonacci-Algorithm.o
 Fibonacci-linux: Fibonacci-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/Fibonacci Fibonacci-Algorithm.o
 Fibonacci-macos: Fibonacci-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Fibonacci Fibonacci-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/Fibonacci Fibonacci-Algorithm.o
 Fibonacci-Algorithm.o: Fibonacci-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c Fibonacci-Algorithm.cpp
 
@@ -45,7 +48,7 @@ RodCutting-win: RodCutting-Algorithm.o
 RodCutting-linux: RodCutting-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/RodCutting RodCutting-Algorithm.o
 RodCutting-macos: RodCutting-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/RodCutting RodCutting-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/RodCutting RodCutting-Algorithm.o
 RodCutting-Algorithm.o: RodCutting-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c RodCutting-Algorithm.cpp
 
@@ -55,7 +58,7 @@ Knapsack-win: Knapsack-Algorithm.o
 Knapsack-linux: Knapsack-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/Knapsack Knapsack-Algorithm.o
 Knapsack-macos: Knapsack-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Knapsack Knapsack-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/Knapsack Knapsack-Algorithm.o
 Knapsack-Algorithm.o: Knapsack-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c Knapsack-Algorithm.cpp
 
@@ -65,7 +68,7 @@ PrettyPrinting-win: PrettyPrinting-Algorithm.o
 PrettyPrinting-linux: PrettyPrinting-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/PrettyPrinting PrettyPrinting-Algorithm.o
 PrettyPrinting-macos: PrettyPrinting-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/PrettyPrinting PrettyPrinting-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/PrettyPrinting PrettyPrinting-Algorithm.o
 PrettyPrinting-Algorithm.o: PrettyPrinting-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c PrettyPrinting-Algorithm.cpp
 
@@ -75,7 +78,7 @@ BellmanFord-win: BellmanFord-Algorithm.o
 BellmanFord-linux: BellmanFord-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/BellmanFord BellmanFord-Algorithm.o
 BellmanFord-macos: BellmanFord-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/BellmanFord BellmanFord-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/BellmanFord BellmanFord-Algorithm.o
 BellmanFord-Algorithm.o: BellmanFord-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c BellmanFord-Algorithm.cpp
 
@@ -85,7 +88,7 @@ Shuffle-win: Shuffle-Algorithm.o
 Shuffle-linux: Shuffle-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/Shuffle Shuffle-Algorithm.o
 Shuffle-macos: Shuffle-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/Shuffle Shuffle-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/Shuffle Shuffle-Algorithm.o
 Shuffle-Algorithm.o: Shuffle-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c Shuffle-Algorithm.cpp
 
@@ -95,7 +98,7 @@ BinarySearch-win: BinarySearch-Algorithm.o
 BinarySearch-linux: BinarySearch-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/BinarySearch BinarySearch-Algorithm.o
 BinarySearch-macos: BinarySearch-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/BinarySearch BinarySearch-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/BinarySearch BinarySearch-Algorithm.o
 BinarySearch-Algorithm.o: BinarySearch-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c BinarySearch-Algorithm.cpp
 
@@ -105,7 +108,7 @@ DFS-win: DFS-Algorithm.o
 DFS-linux: DFS-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/DFS DFS-Algorithm.o
 DFS-macos: DFS-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/DFS DFS-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/DFS DFS-Algorithm.o
 DFS-Algorithm.o: DFS-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c DFS-Algorithm.cpp
 
@@ -115,7 +118,7 @@ MergeSort-win: MergeSort-Algorithm.o
 MergeSort-linux: MergeSort-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/MergeSort MergeSort-Algorithm.o
 MergeSort-macos: MergeSort-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/MergeSort MergeSort-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/MergeSort MergeSort-Algorithm.o
 MergeSort-Algorithm.o: MergeSort-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c MergeSort-Algorithm.cpp
 
@@ -125,7 +128,7 @@ QuickSort-win: QuickSort-Algorithm.o
 QuickSort-linux: QuickSort-Algorithm.o
 	$(CC) $(CFLAGS) -o $(LINUX_PATH)/QuickSort QuickSort-Algorithm.o
 QuickSort-macos: QuickSort-Algorithm.o
-	$(CC) $(CFLAGS) -o $(MACOS_PATH)/QuickSort QuickSort-Algorithm.o
+	$(CC) $(CFLAGS) $(MACOS_ARCH) -o $(MACOS_PATH)/QuickSort QuickSort-Algorithm.o
 QuickSort-Algorithm.o: QuickSort-Algorithm.cpp
 	$(CC) $(CFLAGS) -Wno-padded -c QuickSort-Algorithm.cpp
 

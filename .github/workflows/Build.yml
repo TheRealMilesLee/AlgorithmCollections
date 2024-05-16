@@ -59,8 +59,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: make-clean
       run: make clean
-    - name: make-macos for x86_64
-      run: make all-macos MACOS_ARCH=-arch x86_64
+    - name: make-macos
+      run: make all-macos
     - name: make-clean
       run: make clean
     - name: Commit changes
