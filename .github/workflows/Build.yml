@@ -54,7 +54,7 @@ jobs:
         git push origin master
   job3:
     name: Build MacOS Executables
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
     - uses: actions/checkout@v4
     - name: make-clean
