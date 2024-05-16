@@ -9,6 +9,15 @@ MACOS_PATH=Executables/MacOS
 # macOS architecture (Intel x86_64)
 MACOS_ARCH = -arch x86_64
 
+ifeq ($(OS),Windows_NT)
+  NUM_CORES := $(shell echo %NUMBER_OF_PROCESSORS%)
+else
+  NUM_CORES := $(shell grep -c ^processor /proc/cpuinfo)
+endif
+
+
+MAKEFLAGS += -j$(NUM_CORES)
+
 all-win: Selection-win ClostestPair-win Fibonacci-win RodCutting-win Knapsack-win PrettyPrinting-win BellmanFord-win Shuffle-win BinarySearch-win DFS-win MergeSort-win QuickSort-win
 all-linux: Selection-linux ClostestPair-linux Fibonacci-linux RodCutting-linux Knapsack-linux PrettyPrinting-linux BellmanFord-linux Shuffle-linux BinarySearch-linux DFS-linux MergeSort-linux QuickSort-linux
 all-macos: Selection-macos ClostestPair-macos Fibonacci-macos RodCutting-macos Knapsack-macos PrettyPrinting-macos BellmanFord-macos Shuffle-macos BinarySearch-macos DFS-macos MergeSort-macos QuickSort-macos
