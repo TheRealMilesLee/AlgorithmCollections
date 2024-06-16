@@ -18,35 +18,55 @@ int main()
   {
     cout << suffixArray.at(loop);
   }
+  cout << endl;
 }
 
 vector<int> suffixTree(string incomingString)
 {
   vector<int> suffixArray;
-  vector<int> SA12;
-  vector<int> SA0;
-  // Grouping the incoming string into SA1,2 and SA 0
-  for (size_t loop = 0; loop < incomingString.length(); loop++)
+  if (incomingString.length() == 0)
   {
-    if (loop % 3 == 1 || loop % 3 == 2)
-    {
-      SA12.push_back(loop); // Is the suffix number that mod 3 = 1 or 2
-    }
-    else
-    {
-      SA0.push_back(loop); // Is the suffix number that mod 3 = 0
-    }
+    return suffixArray;
   }
-  vector<string> Group1;
-  // Convert the SA number to 3 mers
-  for (size_t loop = 0; loop < SA12.size(); loop++)
+  if (incomingString.length() == 1)
   {
-    string concate =
-        strcat(incomingString.at(SA12.at(loop)), incomingString.at(loop + 1));
-    string concate2 = strcat(concate, incomingString.at(loop + 2));
-    cout << concate << " " << endl;
-    Group1.push_back(concate);
+    suffixArray.push_back(0);
+    return suffixArray;
   }
+
+  // Add a $ to the end of the string
+  incomingString += "$";
+
+  // Initialize the suffix array
+  suffixArray.resize(incomingString.length());
+  for (int i = 0; i < incomingString.length(); i++)
+  {
+    suffixArray[i] = i;
+  }
+
+  // Sort the suffix array using counting sort
+  int alphabetSize = 256; // Assuming ASCII characters
+  vector<int> count(alphabetSize, 0);
+  vector<int> temp(suffixArray.size(), 0);
+
+  for (int k = 0; k < incomingString.length(); k++)
+  {
+    count[incomingString[k]]++;
+  }
+
+  for (int k = 1; k < alphabetSize; k++)
+  {
+    count[k] += count[k - 1];
+  }
+
+  for (int k = incomingString.length() - 1; k >= 0; k--)
+  {
+    int c = incomingString[k];
+    count[c]--;
+    temp[count[c]] = suffixArray[k];
+  }
+
+  suffixArray = temp;
 
   return suffixArray;
 }
