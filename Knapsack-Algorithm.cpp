@@ -12,20 +12,20 @@ using namespace std;
  * @param n is the number of item
  * @return int is the total value you can get
  */
-int knapsack(int W, const vector<int> &wt, const vector<int> &val, int n);
+int knapsack(int W, const vector<int>& wt, const vector<int>& val, int n);
 
 int main()
 {
-  int W;  // Knapsack capacity
+  int W; // Knapsack capacity
   cout << "Enter the capacity of Knapsack: ";
   cin >> W;
 
-  int n;  // Number of items
+  int n; // Number of items
   cout << "Enter the number of items: ";
   cin >> n;
 
-  vector<int> val(n);  // Values of items
-  vector<int> wt(n);   // Weights of items
+  vector<int> val(n); // Values of items
+  vector<int> wt(n); // Weights of items
 
   cout << "Enter the values of items: ";
   for (int i = 0; i < n; ++i)
@@ -45,7 +45,7 @@ int main()
   return 0;
 }
 
-int knapsack(int W, const vector<int> &wt, const vector<int> &val, int n)
+int knapsack(int W, const vector<int>& wt, const vector<int>& val, int n)
 {
   vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));
 

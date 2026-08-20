@@ -1,4 +1,4 @@
-#include <climits>  // For INT_MIN
+#include <climits> // For INT_MIN
 #include <iostream>
 using namespace std;
 
@@ -21,13 +21,17 @@ int cutRod(int price[], int index, int n);
 
 int main()
 {
-  int arr[] = {1, 5, 8, 9, 10, 17, 17, 20};
+  int arr[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
   int size = sizeof(arr) / sizeof(arr[0]);
-  cout << "Maximum Obtainable Value is " << cutRod(arr, size - 1, size) << endl;
+  cout << "Maximum Obtainable Value is " << cutRod(arr, size - 1, size)
+       << endl;
   return 0;
 }
 
-int max(int a, int b) { return (a > b) ? a : b; }
+int max(int a, int b)
+{
+  return (a > b) ? a : b;
+}
 
 int cutRod(int price[], int index, int n)
 {

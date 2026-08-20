@@ -1,15 +1,15 @@
 #include <iostream>
 #include <random>
 #include <vector>
-using namespace std;  // namespace std;
+using namespace std; // namespace std;
 
-int find_nth_smallest(vector<int> &MyVector, int n);
+int find_nth_smallest(vector<int>& MyVector, int n);
 int main()
 {
   vector<int> MyVector;
   // Initialize random number generator with a seed
   random_device rd;
-  mt19937 gen(rd());  // Mersenne Twister pseudo-random number generator
+  mt19937 gen(rd()); // Mersenne Twister pseudo-random number generator
 
   // Define a distribution for integers between 1 and 100
   std::uniform_int_distribution<> dis(1, 100);
@@ -25,11 +25,13 @@ int main()
   {
     cout << iterator << " ";
   }
-  cout << endl << "The 15rd smallest element is: " << find_nth_smallest(MyVector, 15) << endl;
+  cout << endl
+       << "The 15rd smallest element is: " << find_nth_smallest(MyVector, 15)
+       << endl;
   return 0;
 }
 
-int find_nth_smallest(vector<int> &MyVector, int n)
+int find_nth_smallest(vector<int>& MyVector, int n)
 {
   int pivot = MyVector[0];
   vector<int> less;

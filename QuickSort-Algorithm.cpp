@@ -11,7 +11,7 @@ using namespace std;
  * @param high is the high index of the array
  * @return int is the partition index
  */
-int partition(vector<int> &arr, int low, int high);
+int partition(vector<int>& arr, int low, int high);
 
 /**
  * @brief This function is to perform the quick sort
@@ -20,12 +20,12 @@ int partition(vector<int> &arr, int low, int high);
  * @param low is the low index of the array
  * @param high is the high index of the array
  */
-void quickSort(vector<int> &arr, int low, int high);
+void quickSort(vector<int>& arr, int low, int high);
 
 int main()
 {
   // Input array
-  vector<int> arr = {9, 5, 1, 8, 3, 2, 7, 6, 4};
+  vector<int> arr = { 9, 5, 1, 8, 3, 2, 7, 6, 4 };
 
   // Perform QuickSort
   quickSort(arr, 0, arr.size() - 1);
@@ -41,7 +41,7 @@ int main()
 }
 
 // Function to partition the array
-int partition(vector<int> &arr, int low, int high)
+int partition(vector<int>& arr, int low, int high)
 {
   int pivot = arr[high];
   int i = low - 1;
@@ -60,7 +60,7 @@ int partition(vector<int> &arr, int low, int high)
 }
 
 // Function to perform QuickSort
-void quickSort(vector<int> &arr, int low, int high)
+void quickSort(vector<int>& arr, int low, int high)
 {
   if (low < high)
   {

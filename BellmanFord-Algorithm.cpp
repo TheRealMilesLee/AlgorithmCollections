@@ -14,20 +14,22 @@ struct Edge
  * @param numVertices is the number of vertices in the graph
  * @param source is the source vertex
  */
-void bellmanFord(const vector<Edge> &edges, int numVertices, int source);
+void bellmanFord(const vector<Edge>& edges, int numVertices, int source);
 
 int main()
 {
-  vector<Edge> edges = {{0, 1, 4}, {0, 2, 5}, {1, 2, -2}, {1, 3, 6}, {2, 3, 1}};  // Example edges
-  int numVertices = 4;                                                            // Number of vertices in the graph
-  int source = 0;                                                                 // Source vertex
+  vector<Edge> edges = {
+    { 0, 1, 4 }, { 0, 2, 5 }, { 1, 2, -2 }, { 1, 3, 6 }, { 2, 3, 1 }
+  }; // Example edges
+  int numVertices = 4; // Number of vertices in the graph
+  int source = 0; // Source vertex
 
   bellmanFord(edges, numVertices, source);
 
   return 0;
 }
 
-void bellmanFord(const vector<Edge> &edges, int numVertices, int source)
+void bellmanFord(const vector<Edge>& edges, int numVertices, int source)
 {
   vector<int> distance(numVertices, INT_MAX);
   distance[source] = 0;
@@ -35,9 +37,10 @@ void bellmanFord(const vector<Edge> &edges, int numVertices, int source)
   // Relax all edges numVertices - 1 times
   for (int i = 1; i <= numVertices - 1; ++i)
   {
-    for (const auto &edge : edges)
+    for (const auto& edge : edges)
     {
-      if (distance[edge.source] != INT_MAX && distance[edge.source] + edge.weight < distance[edge.destination])
+      if (distance[edge.source] != INT_MAX
+          && distance[edge.source] + edge.weight < distance[edge.destination])
       {
         distance[edge.destination] = distance[edge.source] + edge.weight;
       }
@@ -45,9 +48,10 @@ void bellmanFord(const vector<Edge> &edges, int numVertices, int source)
   }
 
   // Check for negative weight cycles
-  for (const auto &edge : edges)
+  for (const auto& edge : edges)
   {
-    if (distance[edge.source] != INT_MAX && distance[edge.source] + edge.weight < distance[edge.destination])
+    if (distance[edge.source] != INT_MAX
+        && distance[edge.source] + edge.weight < distance[edge.destination])
     {
       cout << "Graph contains negative weight cycle\n";
       return;

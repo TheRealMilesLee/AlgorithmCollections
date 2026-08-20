@@ -12,7 +12,7 @@ int BinarySearch(vector<int> IncomingVector, int Target);
 
 int main()
 {
-  vector<int> IncomingVector = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+  vector<int> IncomingVector = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
   int Target = 5;
   int Result = BinarySearch(IncomingVector, Target);
   if (Result == -1)

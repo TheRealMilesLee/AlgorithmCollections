@@ -14,40 +14,48 @@ int main()
   string PatternY = "HEE";
   if (shuffle_BruteForce(s, PatternX, PatternY))
   {
-    cout << "Yes, " << s << " are shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "Yes, " << s << " are shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
   else
   {
-    cout << "No, " << s << " are not shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "No, " << s << " are not shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
 
   string s2 = "EEBHIVE";
   if (shuffle_BruteForce(s2, PatternX, PatternY))
   {
-    cout << "Yes, " << s2 << " are shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "Yes, " << s2 << " are shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
   else
   {
-    cout << "No, " << s2 << " are not shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "No, " << s2 << " are not shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
 
   cout << "Now using DP" << endl;
   if (shuffle_DynamicProgramming(s, PatternX, PatternY))
   {
-    cout << "Yes, " << s << " are shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "Yes, " << s << " are shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
   else
   {
-    cout << "No, " << s << " are not shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "No, " << s << " are not shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
 
   if (shuffle_DynamicProgramming(s2, PatternX, PatternY))
   {
-    cout << "Yes, " << s2 << " are shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "Yes, " << s2 << " are shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
   else
   {
-    cout << "No, " << s2 << " are not shuffle of " << PatternX << " and " << PatternY << endl;
+    cout << "No, " << s2 << " are not shuffle of " << PatternX << " and "
+         << PatternY << endl;
   }
   return 0;
 }
@@ -89,7 +97,8 @@ bool shuffle_BruteForce(string s, string PatternX, string PatternY)
 
 bool shuffle_DynamicProgramming(string s, string PatternX, string PatternY)
 {
-  vector<vector<bool> > dp(PatternX.size() + 1, vector<bool>(PatternY.size() + 1, false));
+  vector<vector<bool> > dp(PatternX.size() + 1,
+                           vector<bool>(PatternY.size() + 1, false));
   dp[0][0] = true;
   for (size_t i = 0; i <= PatternX.size(); i++)
   {

@@ -11,26 +11,26 @@ using namespace std;
  * @param n is the length of the parent vector
  * @return int is the number of lines
  */
-int printSolution(const vector<int> &parent, int n);
+int printSolution(const vector<int>& parent, int n);
 
 /**
  * @brief A function to pretty print the words in a paragraph
  * @param words is the vector of lengths of words
  * @param maxWidth is the maximum width of each line
  */
-void prettyPrint(const vector<int> &words, int maxWidth);
+void prettyPrint(const vector<int>& words, int maxWidth);
 
 int main()
 {
-  vector<int> words = {10, 5, 3, 7, 5};  // Lengths of words
-  int maxWidth = 15;                     // Maximum width of each line
+  vector<int> words = { 10, 5, 3, 7, 5 }; // Lengths of words
+  int maxWidth = 15; // Maximum width of each line
 
   prettyPrint(words, maxWidth);
 
   return 0;
 }
 
-int printSolution(const vector<int> &parent, int n)
+int printSolution(const vector<int>& parent, int n)
 {
   int k;
   if (parent[n] == 0)
@@ -45,7 +45,7 @@ int printSolution(const vector<int> &parent, int n)
   return k;
 }
 
-void prettyPrint(const vector<int> &words, int maxWidth)
+void prettyPrint(const vector<int>& words, int maxWidth)
 {
   int n = words.size();
   vector<int> dp(n, INT_MAX);
@@ -61,7 +61,7 @@ void prettyPrint(const vector<int> &words, int maxWidth)
 
     for (int j = i - 1; j >= 0; --j)
     {
-      remainingSpace -= (words[j] + 1);  // Adding one for space between words
+      remainingSpace -= (words[j] + 1); // Adding one for space between words
       if (remainingSpace < 0)
       {
         break;
